@@ -7,6 +7,7 @@ import { PrismaClient } from '@prisma/client';
 export class TodosService {
   constructor(private readonly prisma: PrismaClient) {}
   async create(createTodoDto: CreateTodoDto) {
+    createTodoDto.user_id=1;
     return this.prisma.todo.create({
       data: createTodoDto,
     });
